@@ -173,8 +173,7 @@ def upload():
             data.append(item)
 
             
-    print('aqui',data)
-    #response = {'message': 'Process sussefull '}
+    print('aqui',data)   
     return jsonify(response)
 
 def is_valid_date(date_string):
