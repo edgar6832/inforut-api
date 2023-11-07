@@ -73,36 +73,36 @@ def upload():
 
         #valida si la fecha es válida
         if is_valid_date(assignDate) == False:
-            resp = {'message': 'Fecha '+assignDate+' Inválida '+str(fila)}
+            resp = {'message': 'Fecha '+assignDate+' Inválida '+str(fila+1)}
             response.append(resp)
             isValid = False
         
         #Valida la info del transportista
         if transporterData ==  None:
-            resp = {'message': 'Transportista '+transporterId+' no registrado fila '+str(fila)}
+            resp = {'message': 'Transportista '+transporterId+' no registrado fila '+str(fila+1)}
             response.append(resp)
             isValid = False          
 
         #Valida la info del conductor
         if driverData ==  None:
-            resp = {'message': 'Rut '+driverId+' no registrado fila '+str(fila)}
+            resp = {'message': 'Rut '+driverId+' no registrado fila '+str(fila+1)}
             response.append(resp)
             isValid = False  
         else:          
             if transporterId != driverData['transportId']:
-                resp = {'message': 'El Rut '+driverId+' no esta asociado al transportista '+driverData['transportId']+' fila: '+str(fila)}
+                resp = {'message': 'El Rut '+driverId+' no esta asociado al transportista '+driverData['transportId']+' fila: '+str(fila+1)}
                 response.append(resp)
                 isValid = False
 
 
         #Valida la info del camion
         if truckData ==  None:
-            resp = {'message': 'Patente '+truckId+' no registrada fila '+str(fila)}
+            resp = {'message': 'Patente '+truckId+' no registrada fila '+str(fila+1)}
             response.append(resp)
             isValid = False
         else:
             if transporterId != truckData['transportId']:
-                resp = {'message': 'La Patente '+truckId+' no esta asociada al transportista '+truckData['transportId']+' fila: '+str(fila)}
+                resp = {'message': 'La Patente '+truckId+' no esta asociada al transportista '+truckData['transportId']+' fila: '+str(fila+1)}
                 response.append(resp)
                 isValid = False
             
