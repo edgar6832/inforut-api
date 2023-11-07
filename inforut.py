@@ -34,12 +34,13 @@ dbF = firebase.database()
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/inforut_api', methods=['POST'])
 def upload():
     json_data = request.json
-    urlFile = json_data.get('urlFile')
-    booking = json_data.get('booking')
-    user = json_data.get('user')
+    urlFile = str(json_data.get('urlFile'))
+    booking = str(json_data.get('booking'))
+    user = str(json_data.get('user'))
     bookingData = dbF.child("/Gomes/Orders/"+booking).get()
     bookingData = bookingData.val()
     ##Valido si el booking existe
@@ -49,6 +50,8 @@ def upload():
     
     archivo_excel = urlFile
     df = pd.read_excel(archivo_excel, engine='openpyxl')
+   
+    
     response = []
     isValid = True
     data = []
